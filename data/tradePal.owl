@@ -1,0 +1,2465 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY www "http://www.w3.org/2002/07/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY ont "http://www.co-ode.org/ontologies/ont.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/user/ontologies/2023/9/tradepal#"
+     xml:base="http://www.semanticweb.org/user/ontologies/2023/9/tradepal"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:ont="http://www.co-ode.org/ontologies/ont.owl#"
+     xmlns:owl="&www;owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:www="http://www.w3.org/2002/07/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2023/9/tradepal"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.w3.org/2002/07/content -->
+
+    <owl:AnnotationProperty rdf:about="&www;content"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/id -->
+
+    <owl:AnnotationProperty rdf:about="&www;id"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/title -->
+
+    <owl:AnnotationProperty rdf:about="&www;title"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/user_id -->
+
+    <owl:AnnotationProperty rdf:about="&www;user_id"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#content -->
+
+    <owl:AnnotationProperty rdf:about="&www;owl#content"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#id -->
+
+    <owl:AnnotationProperty rdf:about="&www;owl#id"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#title -->
+
+    <owl:AnnotationProperty rdf:about="&www;owl#title"/>
+
+
+
+    <!-- http://www.w3.org/2002/07/owl#user_id -->
+
+    <owl:AnnotationProperty rdf:about="&www;owl#user_id"/>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#adds -->
+
+    <owl:ObjectProperty rdf:about="&ont;adds">
+        <rdfs:range rdf:resource="&ont;Event"/>
+        <rdfs:domain rdf:resource="&ont;Admin"/>
+        <owl:inverseOf rdf:resource="&ont;is_added_by"/>
+    </owl:ObjectProperty>
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#belongs_to -->
+
+    <owl:ObjectProperty rdf:about="&ont;belongs_to">
+        <rdfs:domain rdf:resource="&ont;Request"/>
+        <rdfs:range rdf:resource="&ont;User"/>
+        <owl:inverseOf rdf:resource="&ont;has_requests"/>
+    </owl:ObjectProperty>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#belongs_to_organization -->
+
+    <owl:ObjectProperty rdf:about="&ont;belongs_to_organization">
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&ont;Organization"/>
+        <owl:inverseOf rdf:resource="&ont;has_donations"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#claim_has_response -->
+
+    <owl:ObjectProperty rdf:about="&ont;claim_has_response">
+        <rdfs:domain rdf:resource="&ont;Claim"/>
+        <rdfs:range rdf:resource="&ont;Response"/>
+        <owl:inverseOf rdf:resource="&ont;response_belongs_to_claim"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#contains_comments -->
+
+    <owl:ObjectProperty rdf:about="&ont;contains_comments">
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&ont;Comment"/>
+        <owl:inverseOf rdf:resource="&ont;under_blog"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#contains_items -->
+
+    <owl:ObjectProperty rdf:about="&ont;contains_items">
+        <owl:inverseOf rdf:resource="&ont;has_category"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#creates -->
+
+    <owl:ObjectProperty rdf:about="&ont;creates">
+        <rdfs:range rdf:resource="&ont;Organization"/>
+        <rdfs:domain rdf:resource="&ont;Admin"/>
+        <owl:inverseOf rdf:resource="&ont;is_created_by"/>
+    </owl:ObjectProperty>
+
+    <owl:ObjectProperty rdf:about="&ont;creates">
+            <rdfs:range rdf:resource="&ont;Response"/>
+            <rdfs:domain rdf:resource="&ont;Admin"/>
+            <owl:inverseOf rdf:resource="&ont;is_created_by"/>
+        </owl:ObjectProperty>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#donates -->
+
+    <owl:ObjectProperty rdf:about="&ont;donates">
+        <rdfs:range rdf:resource="&ont;Donation"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <owl:inverseOf rdf:resource="&ont;has_donor"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_author -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_author">
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&ont;Person"/>
+        <owl:inverseOf rdf:resource="&ont;is_author_of"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_category -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_category"/>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_claimant -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_claimant">
+        <rdfs:range rdf:resource="&ont;User"/>
+        <rdfs:domain rdf:resource="&ont;Claim"/>
+        <owl:inverseOf rdf:resource="&ont;has_claims"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_claims -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_claims">
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <rdfs:range rdf:resource="&ont;Claim"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_donations -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_donations">
+        <rdfs:range rdf:resource="&ont;Donation"/>
+        <rdfs:domain rdf:resource="&ont;Organization"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_donor -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_donor">
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&ont;User"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_hazelnuts -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_hazelnuts">
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <rdfs:range rdf:resource="&ont;Hazelnut"/>
+        <owl:inverseOf rdf:resource="&ont;hazelnuts_belongs_to"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_items -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_items">
+        <rdfs:range rdf:resource="&ont;Item"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <owl:inverseOf rdf:resource="&ont;is_owned_by"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_participant -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_participant">
+        <rdfs:domain rdf:resource="&ont;Participation"/>
+        <rdfs:range rdf:resource="&ont;User"/>
+        <owl:inverseOf rdf:resource="&ont;participates_to"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_participations -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_participations">
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&ont;Participation"/>
+        <owl:inverseOf rdf:resource="&ont;related_to"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_requests -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_requests">
+        <rdfs:range rdf:resource="&ont;Request"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_responder -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_responder">
+        <rdfs:range rdf:resource="&ont;User"/>
+        <rdfs:domain rdf:resource="&ont;Response"/>
+        <owl:inverseOf rdf:resource="&ont;has_responses"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_responses -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_responses">
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <rdfs:range rdf:resource="&ont;Response"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#has_writer -->
+
+    <owl:ObjectProperty rdf:about="&ont;has_writer">
+        <rdfs:domain rdf:resource="&ont;Comment"/>
+        <rdfs:range rdf:resource="&ont;User"/>
+        <owl:inverseOf rdf:resource="&ont;writes_comments"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hazelnuts_belongs_to -->
+
+    <owl:ObjectProperty rdf:about="&ont;hazelnuts_belongs_to">
+        <rdfs:range rdf:resource="&ont;User"/>
+        <rdfs:domain rdf:resource="&ont;Hazelnut"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_added_by -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_added_by">
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&ont;Admin"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_author_of -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_author_of">
+        <rdfs:range rdf:resource="&ont;Blog"/>
+        <rdfs:domain rdf:resource="&ont;Person"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_by -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_by">
+        <rdfs:range rdf:resource="&ont;Item"/>
+        <rdfs:domain rdf:resource="&ont;Request"/>
+        <owl:inverseOf rdf:resource="&ont;is_offered_for"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_created_by -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_created_by">
+        <rdfs:domain rdf:resource="&ont;Organization"/>
+        <rdfs:range rdf:resource="&ont;Admin"/>
+    </owl:ObjectProperty>
+
+
+    <owl:ObjectProperty rdf:about="&ont;is_created_by">
+            <rdfs:domain rdf:resource="&ont;Response"/>
+            <rdfs:range rdf:resource="&ont;Admin"/>
+        </owl:ObjectProperty>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_for -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_for">
+        <rdfs:range rdf:resource="&ont;Item"/>
+        <rdfs:domain rdf:resource="&ont;Request"/>
+        <owl:inverseOf rdf:resource="&ont;is_requested_by"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_offered_for -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_offered_for">
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:range rdf:resource="&ont;Request"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_owned_by -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_owned_by">
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:range rdf:resource="&ont;User"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#is_requested_by -->
+
+    <owl:ObjectProperty rdf:about="&ont;is_requested_by">
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:range rdf:resource="&ont;Request"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#participates_to -->
+
+    <owl:ObjectProperty rdf:about="&ont;participates_to">
+        <rdfs:range rdf:resource="&ont;Participation"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#related_to -->
+
+    <owl:ObjectProperty rdf:about="&ont;related_to">
+        <rdfs:range rdf:resource="&ont;Event"/>
+        <rdfs:domain rdf:resource="&ont;Participation"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#response_belongs_to_claim -->
+
+    <owl:ObjectProperty rdf:about="&ont;response_belongs_to_claim">
+        <rdfs:range rdf:resource="&ont;Claim"/>
+        <rdfs:domain rdf:resource="&ont;Response"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#under_blog -->
+
+    <owl:ObjectProperty rdf:about="&ont;under_blog">
+        <rdfs:range rdf:resource="&ont;Blog"/>
+        <rdfs:domain rdf:resource="&ont;Comment"/>
+    </owl:ObjectProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#writes_comments -->
+
+    <owl:ObjectProperty rdf:about="&ont;writes_comments">
+        <rdfs:range rdf:resource="&ont;Comment"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+    </owl:ObjectProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#id -->
+
+    <owl:DatatypeProperty rdf:about="&ont;id">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:domain rdf:resource="&ont;Comment"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:domain rdf:resource="&ont;Organization"/>
+        <rdfs:domain rdf:resource="&ont;Participation"/>
+        <rdfs:domain rdf:resource="&ont;Response"/>
+        <rdfs:domain rdf:resource="&ont;Claim"/>
+        <rdfs:domain rdf:resource="&ont;Request"/>
+        <rdfs:domain rdf:resource="&ont;Hazelnut"/>
+        <rdfs:domain rdf:resource="&ont;Person"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Lieu -->
+
+    <owl:DatatypeProperty rdf:about="&ont;Lieu">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#account_status -->
+
+    <owl:DatatypeProperty rdf:about="&ont;account_status">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#amount -->
+
+    <owl:DatatypeProperty rdf:about="&ont;amount">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <rdfs:domain rdf:resource="&ont;Hazelnut"/>
+        <rdfs:domain rdf:resource="&ont;Request"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#archived -->
+
+    <owl:DatatypeProperty rdf:about="&ont;archived">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#bio -->
+
+    <owl:DatatypeProperty rdf:about="&ont;bio">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#claim_date -->
+
+    <owl:DatatypeProperty rdf:about="&ont;claim_date">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Response"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#color -->
+
+    <owl:DatatypeProperty rdf:about="&ont;color">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#content -->
+
+    <owl:DatatypeProperty rdf:about="&ont;content">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:domain rdf:resource="&ont;Comment"/>
+        <rdfs:domain rdf:resource="&ont;Claim"/>
+        <rdfs:domain rdf:resource="&ont;Response"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#date -->
+
+    <owl:DatatypeProperty rdf:about="&ont;date">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#description -->
+
+    <owl:DatatypeProperty rdf:about="&ont;description">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:domain rdf:resource="&ont;Claim"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#email -->
+
+    <owl:DatatypeProperty rdf:about="&ont;email">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Organization"/>
+        <rdfs:domain rdf:resource="&ont;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#end -->
+
+    <owl:DatatypeProperty rdf:about="&ont;end">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#expiration_date -->
+
+    <owl:DatatypeProperty rdf:about="&ont;expiration_date">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Hazelnut"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#featuredImage -->
+
+    <owl:DatatypeProperty rdf:about="&ont;featuredImage">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#founding_date -->
+
+    <owl:DatatypeProperty rdf:about="&ont;founding_date">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#image_path -->
+
+    <owl:DatatypeProperty rdf:about="&ont;image_path">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#likes -->
+
+    <owl:DatatypeProperty rdf:about="&ont;likes">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#location -->
+
+    <owl:DatatypeProperty rdf:about="&ont;location">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&www;owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="&ont;name">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#nom -->
+
+    <owl:DatatypeProperty rdf:about="&ont;nom">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#nomUser -->
+
+    <owl:DatatypeProperty rdf:about="&ont;nomUser">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Participation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#note -->
+
+    <owl:DatatypeProperty rdf:about="&ont;note">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Request"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#object -->
+
+    <owl:DatatypeProperty rdf:about="&ont;object">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#password -->
+
+    <owl:DatatypeProperty rdf:about="&ont;password">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&www;owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#phone -->
+
+    <owl:DatatypeProperty rdf:about="&ont;phone">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;User"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#phone_number -->
+
+    <owl:DatatypeProperty rdf:about="&ont;phone_number">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#profile_picture -->
+
+    <owl:DatatypeProperty rdf:about="&ont;profile_picture">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#publicationDate -->
+
+    <owl:DatatypeProperty rdf:about="&ont;publicationDate">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&xsd;dateTimeStamp"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#response_date -->
+
+    <owl:DatatypeProperty rdf:about="&ont;response_date">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Response"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#start -->
+
+    <owl:DatatypeProperty rdf:about="&ont;start">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Event"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#status -->
+
+    <owl:DatatypeProperty rdf:about="&ont;status">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:domain rdf:resource="&ont;Item"/>
+        <rdfs:domain rdf:resource="&ont;Request"/>
+        <rdfs:domain rdf:resource="&ont;Claim"/>
+        <rdfs:domain rdf:resource="&ont;Hazelnut"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#subject -->
+
+    <owl:DatatypeProperty rdf:about="&ont;subject">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Claim"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#tags -->
+
+    <owl:DatatypeProperty rdf:about="&ont;tags">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#title -->
+
+    <owl:DatatypeProperty rdf:about="&ont;title">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#type -->
+
+    <owl:DatatypeProperty rdf:about="&ont;type">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#username -->
+
+    <owl:DatatypeProperty rdf:about="&ont;username">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Person"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+        <rdfs:subPropertyOf rdf:resource="&www;owl#topDataProperty"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#views -->
+
+    <owl:DatatypeProperty rdf:about="&ont;views">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Blog"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#website -->
+
+    <owl:DatatypeProperty rdf:about="&ont;website">
+        <rdf:type rdf:resource="&www;owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&ont;Donation"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Blog -->
+
+    <owl:Class rdf:about="&ont;Blog">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_author"/>
+                <owl:allValuesFrom rdf:resource="&ont;Person"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;contains_comments"/>
+                <owl:someValuesFrom rdf:resource="&ont;Comment"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Comment -->
+
+    <owl:Class rdf:about="&ont;Comment">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_writer"/>
+                <owl:allValuesFrom rdf:resource="&ont;Person"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;under_blog"/>
+                <owl:allValuesFrom rdf:resource="&ont;Blog"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Donation -->
+
+    <owl:Class rdf:about="&ont;Donation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;belongs_to_organization"/>
+                <owl:allValuesFrom rdf:resource="&ont;Organization"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Event -->
+
+    <owl:Class rdf:about="&ont;Event">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_added_by"/>
+                <owl:allValuesFrom rdf:resource="&ont;Admin"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_participations"/>
+                <owl:someValuesFrom rdf:resource="&ont;Participation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Item -->
+
+    <owl:Class rdf:about="&ont;Item">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_offered_for"/>
+                <owl:someValuesFrom rdf:resource="&ont;Request"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_owned_by"/>
+                <owl:allValuesFrom rdf:resource="&ont;User"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_requested_by"/>
+                <owl:someValuesFrom rdf:resource="&ont;Request"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_category"/>
+                <owl:allValuesFrom rdf:resource="&ont;ItemCategory"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Organization -->
+
+    <owl:Class rdf:about="&ont;Organization">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_donations"/>
+                <owl:someValuesFrom rdf:resource="&ont;Donation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Participation -->
+
+    <owl:Class rdf:about="&ont;Participation">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_participant"/>
+                <owl:allValuesFrom rdf:resource="&ont;User"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;participates_to"/>
+                <owl:allValuesFrom rdf:resource="&ont;Event"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Request -->
+
+    <owl:Class rdf:about="&ont;Request">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;belongs_to"/>
+                <owl:allValuesFrom rdf:resource="&ont;User"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_by"/>
+                <owl:someValuesFrom rdf:resource="&ont;Item"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_for"/>
+                <owl:allValuesFrom rdf:resource="&ont;Item"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#User -->
+
+    <owl:Class rdf:about="&ont;User">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;participates_to"/>
+                <owl:someValuesFrom rdf:resource="&ont;Participation"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;writes_comments"/>
+                <owl:someValuesFrom rdf:resource="&ont;Comment"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_items"/>
+                <owl:someValuesFrom rdf:resource="&ont;Item"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_claims"/>
+                <owl:someValuesFrom rdf:resource="&ont;Claim"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_requests"/>
+                <owl:someValuesFrom rdf:resource="&ont;Request"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_hazelnuts"/>
+                <owl:someValuesFrom rdf:resource="&ont;Hazelnut"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ont;Person"/>
+        <owl:disjointWith rdf:resource="&ont;Admin"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Admin -->
+
+    <owl:Class rdf:about="&ont;Admin">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;adds"/>
+                <owl:someValuesFrom rdf:resource="&ont;Event"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;creates"/>
+                <owl:someValuesFrom rdf:resource="&ont;Response"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;creates"/>
+                <owl:someValuesFrom rdf:resource="&ont;Organization"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&ont;Person"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Claim -->
+
+    <owl:Class rdf:about="&ont;Claim">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;claim_has_response"/>
+                <owl:someValuesFrom rdf:resource="&ont;Response"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;has_claimant"/>
+                <owl:allValuesFrom rdf:resource="&ont;User"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Clothing_Exchange -->
+
+    <owl:Class rdf:about="&ont;Clothing_Exchange">
+        <rdfs:subClassOf rdf:resource="&ont;Event"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Clubs_and_Associations -->
+
+    <owl:Class rdf:about="&ont;Clubs_and_Associations">
+        <rdfs:subClassOf rdf:resource="&ont;Organization"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Community_Groups -->
+
+    <owl:Class rdf:about="&ont;Community_Groups">
+        <rdfs:subClassOf rdf:resource="&ont;Organization"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Educational_Institutions -->
+
+    <owl:Class rdf:about="&ont;Educational_Institutions">
+        <rdfs:subClassOf rdf:resource="&ont;Organization"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Food_Exchange -->
+
+    <owl:Class rdf:about="&ont;Food_Exchange">
+        <rdfs:subClassOf rdf:resource="&ont;Event"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Hazelnut -->
+
+    <owl:Class rdf:about="&ont;Hazelnut">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;hazelnuts_belongs_to"/>
+                <owl:allValuesFrom rdf:resource="&ont;User"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#How_to_Guides -->
+
+    <owl:Class rdf:about="&ont;How_to_Guides">
+        <rdfs:subClassOf rdf:resource="&ont;Blog"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ItemCategory -->
+
+    <owl:Class rdf:about="&ont;ItemCategory">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;contains_items"/>
+                <owl:someValuesFrom rdf:resource="&ont;Item"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Legal_and_Safety -->
+
+    <owl:Class rdf:about="&ont;Legal_and_Safety">
+        <rdfs:subClassOf rdf:resource="&ont;Blog"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Nonprofit_Organizations -->
+
+    <owl:Class rdf:about="&ont;Nonprofit_Organizations">
+        <rdfs:subClassOf rdf:resource="&ont;Organization"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Person -->
+
+    <owl:Class rdf:about="&ont;Person">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_author_of"/>
+                <owl:someValuesFrom rdf:resource="&ont;Blog"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Response -->
+
+    <owl:Class rdf:about="&ont;Response">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ont;is_created_by"/>
+                <owl:allValuesFrom rdf:resource="&ont;Admin"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Skill_Swap -->
+
+    <owl:Class rdf:about="&ont;Skill_Swap">
+        <rdfs:subClassOf rdf:resource="&ont;Event"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Toy_Swap -->
+
+    <owl:Class rdf:about="&ont;Toy_Swap">
+        <rdfs:subClassOf rdf:resource="&ont;Event"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Trading_Tips_and_Tricks -->
+
+    <owl:Class rdf:about="&ont;Trading_Tips_and_Tricks">
+        <rdfs:subClassOf rdf:resource="&ont;Blog"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Upcycling_and_DIY_Projects -->
+
+    <owl:Class rdf:about="&ont;Upcycling_and_DIY_Projects">
+        <rdfs:subClassOf rdf:resource="&ont;Blog"/>
+    </owl:Class>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ResponseResolution -->
+    <owl:Class rdf:about="&ont;ResponseResolution">
+        <rdfs:subClassOf rdf:resource="&ont;Response"/>
+    </owl:Class>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ResponseRejection -->
+    <owl:Class rdf:about="&ont;ResponseRejection">
+        <rdfs:subClassOf rdf:resource="&ont;Response"/>
+    </owl:Class>
+
+        <!-- http://www.co-ode.org/ontologies/ont.owl#ResponseApology -->
+    <owl:Class rdf:about="&ont;ResponseApology">
+       <rdfs:subClassOf rdf:resource="&ont;Response"/>
+    </owl:Class>
+
+                <!-- http://www.co-ode.org/ontologies/ont.owl#ResponseConfirmation -->
+    <owl:Class rdf:about="&ont;ResponseConfirmation">
+        <rdfs:subClassOf rdf:resource="&ont;Response"/>
+    </owl:Class>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#ResponseInformation -->
+    <owl:Class rdf:about="&ont;ResponseInformation">
+        <rdfs:subClassOf rdf:resource="&ont;Response"/>
+    </owl:Class>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#hazelnuts_donation -->
+
+    <owl:Class rdf:about="&ont;hazelnuts_donation">
+        <rdfs:subClassOf rdf:resource="&ont;Donation"/>
+    </owl:Class>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#object_donation -->
+
+    <owl:Class rdf:about="&ont;object_donation">
+        <rdfs:subClassOf rdf:resource="&ont;Donation"/>
+    </owl:Class>
+
+
+
+    <!--
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Animaux_Sans_Toit -->
+
+    <owl:NamedIndividual rdf:about="&ont;Animaux_Sans_Toit">
+        <rdf:type rdf:resource="&ont;Nonprofit_Organizations"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2002-10-10T14:30:00</ont:founding_date>
+        <ont:phone_number rdf:datatype="&xsd;decimal">22000000</ont:phone_number>
+        <ont:email>animaux@sanstoit.com</ont:email>
+        <ont:archived rdf:datatype="&xsd;boolean">false</ont:archived>
+        <ont:website >https://animauxsanstoit.fr</ont:website>
+        <ont:location>1 2 3 rue mallassin</ont:location>
+        <ont:name>Animaux Sans Toit</ont:name>
+        <ont:type>NGO</ont:type>
+        <ont:description>shelter for animals</ont:description>
+        <ont:has_donations rdf:resource="&ont;MariemDonation"/>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Art_and_Crafts -->
+
+    <owl:NamedIndividual rdf:about="&ont;Art_and_Crafts">
+        <rdf:type rdf:resource="&ont;ItemCategory"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:name>Art_And_Crafts</ont:name>
+        <ont:contains_items rdf:resource="&ont;Paint"/>
+         <ont:contains_items rdf:resource="&ont;Craft"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Ball -->
+
+    <owl:NamedIndividual rdf:about="&ont;Ball">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:amount rdf:datatype="&xsd;decimal">15</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">10</ont:id>
+        <ont:status>Disponible</ont:status>
+        <ont:name>Ball</ont:name>
+        <ont:description>Football Ball</ont:description>
+        <ont:is_owned_by rdf:resource="&ont;Mohsen"/>
+        <ont:has_category rdf:resource="&ont;Toys_and_games"/>
+         <ont:is_offered_for rdf:resource="&ont;JewelryRequest"/>
+         <ont:is_requested_by rdf:resource="&ont;BallRequest"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Benevolent_Buddies -->
+
+    <owl:NamedIndividual rdf:about="&ont;Benevolent_Buddies">
+        <rdf:type rdf:resource="&ont;Community_Groups"/>
+        <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2002-04-15T14:00:00</ont:founding_date>
+        <ont:phone rdf:datatype="&xsd;decimal">90145987</ont:phone>
+        <ont:archived rdf:datatype="&xsd;boolean">false</ont:archived>
+        <ont:name>Benevolent Buddies</ont:name>
+        <ont:location>21 rue nahli</ont:location>
+        <ont:description>Benevolent Buddies Organization</ont:description>
+        <ont:email>Benevolent-Buddie@gmail.com</ont:email>
+        <ont:website>https://www.Benevolent-Buddies.com</ont:website>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Book -->
+
+    <owl:NamedIndividual rdf:about="&ont;Book">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:amount rdf:datatype="&xsd;decimal">30</ont:amount>
+        <ont:status>Indisponible</ont:status>
+        <ont:name>Harry Pother</ont:name>
+        <ont:description>Harry Pother Book</ont:description>
+        <ont:has_category rdf:resource="&ont;Books_and_media"/>
+        <ont:is_owned_by rdf:resource="&ont;Mohsen"/>
+        <ont:is_requested_by rdf:resource="&ont;HarryBookRequest"/>
+        <ont:is_offered_for rdf:resource="&ont;JewelryRequest_byBook"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Books_and_media -->
+
+    <owl:NamedIndividual rdf:about="&ont;Books_and_media">
+        <rdf:type rdf:resource="&ont;ItemCategory"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:name>Books_and_media</ont:name>
+        <ont:contains_items rdf:resource="&ont;Book"/>
+        <ont:contains_items rdf:resource="&ont;Livre"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Cards -->
+
+    <owl:NamedIndividual rdf:about="&ont;Cards">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:amount rdf:datatype="&xsd;decimal">2</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">8</ont:id>
+        <ont:name>Rami Cards</ont:name>
+        <ont:status>Disponible</ont:status>
+        <ont:description>Rami Cards</ont:description>
+        <ont:is_owned_by rdf:resource="&ont;Mariem"/>
+        <ont:has_category rdf:resource="&ont;Toys_and_games"/>
+        <ont:is_offered_for rdf:resource="&ont;LaptopRequest_Mohsen_RamiCards"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Chocolate -->
+
+    <owl:NamedIndividual rdf:about="&ont;Chocolate">
+        <rdf:type rdf:resource="&ont;Food_Exchange"/>
+        <ont:start rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:start>
+        <ont:date rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:date>
+        <ont:end rdf:datatype="&xsd;dateTime">2024-01-14T11:23:11</ont:end>
+        <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+        <ont:Lieu>Sfax</ont:Lieu>
+        <ont:nom>Chocolate</ont:nom>
+        <ont:image_path>gateau.png</ont:image_path>
+        <ont:color>#001005</ont:color>
+        <ont:description>chocolate event for all</ont:description>
+            <ont:has_participations rdf:resource="&ont;MariemParticipation"/>
+        <ont:is_added_by rdf:resource="&ont;Karim"/>
+    </owl:NamedIndividual>
+
+
+        <owl:NamedIndividual rdf:about="&ont;Chocolate">
+            <rdf:type rdf:resource="&ont;Food_Exchange"/>
+            <ont:start rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:start>
+            <ont:date rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:date>
+            <ont:end rdf:datatype="&xsd;dateTime">2024-01-14T11:23:11</ont:end>
+            <ont:id rdf:datatype="&xsd;decimal">11</ont:id>
+            <ont:Lieu>Sfax</ont:Lieu>
+            <ont:nom>Chocolate</ont:nom>
+            <ont:image_path>gateau.png</ont:image_path>
+            <ont:color>#001005</ont:color>
+            <ont:description>chocolate event for all</ont:description>
+            <ont:is_added_by rdf:resource="&ont;Wael"/>
+        </owl:NamedIndividual>
+
+
+        <owl:NamedIndividual rdf:about="&ont;Pain">
+            <rdf:type rdf:resource="&ont;Food_Exchange"/>
+            <ont:start rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:start>
+            <ont:date rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:date>
+            <ont:end rdf:datatype="&xsd;dateTime">2024-01-14T11:23:11</ont:end>
+            <ont:id rdf:datatype="&xsd;decimal">12</ont:id>
+            <ont:Lieu>Monastir</ont:Lieu>
+            <ont:nom>Pain</ont:nom>
+            <ont:image_path>pain.png</ont:image_path>
+            <ont:color>#001005</ont:color>
+            <ont:description>pain pour toute la tunisie</ont:description>
+            <ont:is_added_by rdf:resource="&ont;Wael"/>
+        </owl:NamedIndividual>
+
+
+                <owl:NamedIndividual rdf:about="&ont;Gaucho">
+                    <rdf:type rdf:resource="&ont;Food_Exchange"/>
+                    <ont:start rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:start>
+                    <ont:date rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:date>
+                    <ont:end rdf:datatype="&xsd;dateTime">2024-01-14T11:23:11</ont:end>
+                    <ont:id rdf:datatype="&xsd;decimal">14</ont:id>
+                    <ont:Lieu>Beja</ont:Lieu>
+                    <ont:nom>Gaucho</ont:nom>
+                    <ont:image_path>gaucho.png</ont:image_path>
+                    <ont:color>#001005</ont:color>
+                    <ont:description>gaucho pour les enfants </ont:description>
+                    <ont:is_added_by rdf:resource="&ont;Wael"/>
+                </owl:NamedIndividual>
+
+
+
+
+
+
+
+
+      <owl:NamedIndividual rdf:about="&ont;gateau">
+            <rdf:type rdf:resource="&ont;Food_Exchange"/>
+            <ont:start rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:start>
+            <ont:date rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:date>
+            <ont:end rdf:datatype="&xsd;dateTime">2024-01-14T11:23:11</ont:end>
+            <ont:id rdf:datatype="&xsd;decimal">16</ont:id>
+            <ont:Lieu>Sfax</ont:Lieu>
+            <ont:nom>Gateau</ont:nom>
+            <ont:image_path>gateau.png</ont:image_path>
+            <ont:color>#001005</ont:color>
+            <ont:description>gateau event for all</ont:description>
+            <ont:is_added_by rdf:resource="&ont;Wael"/>
+      </owl:NamedIndividual>
+       <owl:NamedIndividual rdf:about="&ont;pizza">
+                  <rdf:type rdf:resource="&ont;Food_Exchange"/>
+                  <ont:start rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:start>
+                  <ont:date rdf:datatype="&xsd;dateTime">2024-01-14T09:23:11</ont:date>
+                  <ont:end rdf:datatype="&xsd;dateTime">2024-01-14T11:23:11</ont:end>
+                  <ont:id rdf:datatype="&xsd;decimal">17</ont:id>
+                  <ont:Lieu>Tunis</ont:Lieu>
+                  <ont:nom>Pizza Party</ont:nom>
+                  <ont:image_path>pizza.png</ont:image_path>
+                  <ont:color>#001005</ont:color>
+                  <ont:description>Pizza party for everyone</ont:description>
+                  <ont:is_added_by rdf:resource="&ont;Wael"/>
+            </owl:NamedIndividual>
+
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#DIYBlog -->
+
+    <owl:NamedIndividual rdf:about="&ont;DIYBlog">
+        <rdf:type rdf:resource="&ont;Upcycling_and_DIY_Projects"/>
+        <ont:views rdf:datatype="&xsd;int">20</ont:views>
+        <ont:publicationDate rdf:datatype="&xsd;dateTime">2023-11-12T15:35:00</ont:publicationDate>
+        <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+        <ont:likes rdf:datatype="&xsd;int">5</ont:likes>
+        <ont:featuredImage>DIY.png</ont:featuredImage>
+        <ont:content>DIY blog for evenry one ! join us</ont:content>
+        <ont:tags>DIY</ont:tags>
+        <ont:title>DIYBlog</ont:title>
+        <ont:status>Privé</ont:status>
+        <ont:is_author_of rdf:resource="&ont;DIYBlog"/>
+        <ont:contains_comments rdf:resource="&ont;DIYComment"/>
+        <ont:has_author rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+<!-- http://www.co-ode.org/ontologies/ont.owl#TipsToTrade -->
+
+<owl:NamedIndividual rdf:about="&ont;TipsToTrade">
+    <rdf:type rdf:resource="&ont;Trading_Tips_and_Tricks"/>
+    <ont:likes rdf:datatype="&xsd;int">15</ont:likes>
+    <ont:views rdf:datatype="&xsd;int">30</ont:views>
+    <ont:publicationDate rdf:datatype="&xsd;dateTime">2023-12-12T09:00:00</ont:publicationDate>
+    <ont:id rdf:datatype="&xsd;decimal">6</ont:id>
+    <ont:featuredImage>tipstrade.png</ont:featuredImage>
+    <ont:title>Tips To Trade</ont:title>
+    <ont:status>Publique</ont:status>
+    <ont:tags>tips</ont:tags>
+    <ont:content>Tips that help you trade</ont:content>
+    <ont:has_author rdf:resource="&ont;Wael"/>
+</owl:NamedIndividual>
+
+
+<!-- http://www.co-ode.org/ontologies/ont.owl#Covid_Safety -->
+
+<owl:NamedIndividual rdf:about="&ont;Covid_Safety">
+    <rdf:type rdf:resource="&ont;Legal_and_Safety"/>
+    <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+    <ont:likes rdf:datatype="&xsd;int">10</ont:likes>
+    <ont:publicationDate rdf:datatype="&xsd;dateTime">2021-05-14T09:07:00</ont:publicationDate>
+    <ont:views rdf:datatype="&xsd;int">3</ont:views>
+    <ont:title>Covid Safety</ont:title>
+    <ont:featuredImage>Covid_Safety.png</ont:featuredImage>
+    <ont:tags>covid19</ont:tags>
+    <ont:content>How to stay safe during the pandemic</ont:content>
+    <ont:status>Publique</ont:status>
+    <ont:has_author rdf:resource="&ont;Wael"/>
+
+</owl:NamedIndividual>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#DIYComment -->
+
+    <owl:NamedIndividual rdf:about="&ont;DIYComment">
+        <rdf:type rdf:resource="&ont;Comment"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:content>Waaw amazing!</ont:content>
+        <ont:under_blog rdf:resource="&ont;DIYBlog"/>
+        <ont:has_writer rdf:resource="&ont;Mariem"/>
+    </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="&ont;SafeComment">
+            <rdf:type rdf:resource="&ont;Comment"/>
+            <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+            <ont:content>thanks for sharing!</ont:content>
+            <ont:under_blog rdf:resource="&ont;Stay_safe"/>
+            <ont:has_writer rdf:resource="&ont;Wael"/>
+        </owl:NamedIndividual>
+<owl:NamedIndividual rdf:about="&ont;CovidComment">
+            <rdf:type rdf:resource="&ont;Comment"/>
+            <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+            <ont:content>stay safe y'all!</ont:content>
+            <ont:under_blog rdf:resource="&ont;Covid_Safety"/>
+            <ont:has_writer rdf:resource="&ont;Wael"/>
+        </owl:NamedIndividual>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Education_4_All -->
+
+    <owl:NamedIndividual rdf:about="&ont;Education_4_All">
+        <rdf:type rdf:resource="&ont;Nonprofit_Organizations"/>
+        <ont:id rdf:datatype="&xsd;decimal">8</ont:id>
+        <ont:phone rdf:datatype="&xsd;decimal">27000000</ont:phone>
+        <ont:archived rdf:datatype="&xsd;boolean">true</ont:archived>
+        <ont:email>education@yahoo.fr</ont:email>
+        <ont:founding_date>2005-09-10T14:30:00</ont:founding_date>
+        <ont:name>Education 4 All</ont:name>
+        <ont:location>6 rue beb bhar</ont:location>
+        <ont:type>NGO</ont:type>
+        <ont:website>https://edu-for-all.fr</ont:website>
+        <ont:description>we provide education</ont:description>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+        <ont:has_donations rdf:resource="&ont;Hazelnuts_to_edu"/>
+    </owl:NamedIndividual>
+
+
+<!-- http://www.co-ode.org/ontologies/ont.owl#AIESEC -->
+
+    <owl:NamedIndividual rdf:about="&ont;AIESEC">
+        <rdf:type rdf:resource="&ont;Clubs_and_Associations"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2011-09-01T01:00:00</ont:founding_date>
+        <ont:phone rdf:datatype="&xsd;decimal">99555888</ont:phone>
+        <ont:archived rdf:datatype="&xsd;boolean">false</ont:archived>
+        <ont:name>AIESEC</ont:name>
+        <ont:website>https:///www.aiesec.tn</ont:website>
+        <ont:description>Start your leadership journey with AIESEC.</ont:description>
+        <ont:location>7 Farhat hached</ont:location>
+        <ont:email>aiesec@contact.com</ont:email>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+        <ont:has_donations rdf:resource="&ont;food"/>
+
+    </owl:NamedIndividual>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#School4All -->
+
+    <owl:NamedIndividual rdf:about="&ont;School4All">
+        <rdf:type rdf:resource="&ont;Educational_Institutions"/>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2013-05-12T12:00:00</ont:founding_date>
+        <ont:phone rdf:datatype="&xsd;decimal">24444222</ont:phone>
+        <ont:archived rdf:datatype="&xsd;boolean">false</ont:archived>
+        <ont:location>2 rue sidi bahri</ont:location>
+        <ont:website>www.school4all.tn</ont:website>
+        <ont:email>school4all@contact.com</ont:email>
+        <ont:name>School 4 All</ont:name>
+        <ont:description>Education for everyone</ont:description>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+        <ont:has_donations rdf:resource="&ont;MohsenDonation"/>
+    </owl:NamedIndividual>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Give_A_Hand -->
+
+    <owl:NamedIndividual rdf:about="&ont;Give_A_Hand">
+        <rdf:type rdf:resource="&ont;Nonprofit_Organizations"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2002-10-10T14:30:00</ont:founding_date>
+        <ont:phone rdf:datatype="&xsd;decimal">22000000</ont:phone>
+        <ont:email>giveAhand@contact.com</ont:email>
+        <ont:archived rdf:datatype="&xsd;boolean">true</ont:archived>
+        <ont:website >https://giveahand.fr</ont:website>
+        <ont:location>1 rue benamor</ont:location>
+        <ont:name>Give A Hand</ont:name>
+        <ont:type>NGO</ont:type>
+        <ont:description>We make our community better</ont:description>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+        <ont:has_donations rdf:resource="&ont;GiveAHandDonation"/>
+    </owl:NamedIndividual>
+
+<!-- http://www.co-ode.org/ontologies/ont.owl#MohsenDonation -->
+
+        <owl:NamedIndividual rdf:about="&ont;MohsenDonation">
+            <rdf:type rdf:resource="&ont;hazelnuts_donation"/>
+            <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+            <ont:amount rdf:datatype="&xsd;decimal">400</ont:amount>
+            <ont:object>null</ont:object>
+            <ont:has_donor rdf:resource="&ont;Mohsen"/>
+        </owl:NamedIndividual>
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Electronics -->
+
+    <owl:NamedIndividual rdf:about="&ont;Electronics">
+        <rdf:type rdf:resource="&ont;ItemCategory"/>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:name>Electronics</ont:name>
+        <ont:contains_items rdf:resource="&ont;Laptop"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Enactus -->
+
+    <owl:NamedIndividual rdf:about="&ont;Enactus">
+        <rdf:type rdf:resource="&ont;Clubs_and_Associations"/>
+        <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2023-09-01T01:00:00</ont:founding_date>
+        <ont:phone rdf:datatype="&xsd;decimal">99666444</ont:phone>
+        <ont:archived rdf:datatype="&xsd;boolean">false</ont:archived>
+        <ont:name>Enactus</ont:name>
+        <ont:website>https:///www.Enactus.tn</ont:website>
+        <ont:description>Enactus</ont:description>
+        <ont:location>18 Farhat hached</ont:location>
+        <ont:email>enactus@contact.com</ont:email>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Fashion_and_accessories -->
+
+    <owl:NamedIndividual rdf:about="&ont;Fashion_and_accessories">
+        <rdf:type rdf:resource="&ont;ItemCategory"/>
+        <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+        <ont:name>Fashion_and_accessories</ont:name>
+        <ont:contains_items rdf:resource="&ont;Robe"/>
+        <ont:contains_items rdf:resource="&ont;jewelry"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#FraudeClaim -->
+
+    <owl:NamedIndividual rdf:about="&ont;FraudeClaim">
+        <rdf:type rdf:resource="&ont;Claim"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:claim_date>2022-10-10T14:30:00</ont:claim_date>
+        <ont:description>i received the wrong item</ont:description>
+        <ont:subject>Fraude Claim</ont:subject>
+        <ont:status>PENDING</ont:status>
+        <ont:has_responses rdf:resource="&ont;Plus_d'infos"/>
+        <ont:has_responses rdf:resource="&ont;Excuses"/>
+        <ont:has_responses rdf:resource="&ont;Reclamation_Resolue"/>
+        <ont:has_claimant rdf:resource="&ont;Mohsen"/>
+    </owl:NamedIndividual>
+
+        <owl:NamedIndividual rdf:about="&ont;ClaimBrokenItem">
+            <rdf:type rdf:resource="&ont;Claim"/>
+            <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+            <ont:claim_date>2022-11-10T14:30:00</ont:claim_date>
+            <ont:description>i received a broken item</ont:description>
+            <ont:subject>Broken Item Claim</ont:subject>
+            <ont:status>INPROGRESS</ont:status>
+            <ont:has_responses rdf:resource="&ont;Reclamation_Resolue"/>
+            <ont:has_claimant rdf:resource="&ont;Mohsen"/>
+        </owl:NamedIndividual>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Response -->
+    <owl:NamedIndividual rdf:about="&ont;Reclamation_Resolue">
+        <rdf:type rdf:resource="&ont;ResponseResolution"/>
+       <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+               <ont:content>Votre reclamation est resolue</ont:content>
+               <ont:response_date>2023-10-10T14:30:00</ont:response_date>
+               <ont:is_created_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+    <owl:NamedIndividual rdf:about="&ont;Reclamation_Rejetee">
+        <rdf:type rdf:resource="&ont;ResponseRejection"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:content>Votre reclamation est rejetee</ont:content>
+        <ont:response_date>2023-10-10T14:30:00</ont:response_date>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+        <owl:NamedIndividual rdf:about="&ont;Excuses">
+            <rdf:type rdf:resource="&ont;ResponseApology"/>
+            <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+            <ont:content>Nous nous excusons pour ce probleme</ont:content>
+            <ont:response_date>2023-10-10T14:30:00</ont:response_date>
+            <ont:is_created_by rdf:resource="&ont;Wael"/>
+        </owl:NamedIndividual>
+
+
+        <owl:NamedIndividual rdf:about="&ont;Demande_Confirmee">
+            <rdf:type rdf:resource="&ont;ResponseConfirmation"/>
+            <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+            <ont:content>Votre demande est confirmee</ont:content>
+            <ont:response_date>2023-10-10T14:30:00</ont:response_date>
+            <ont:is_created_by rdf:resource="&ont;Wael"/>
+        </owl:NamedIndividual>
+
+        <owl:NamedIndividual rdf:about="&ont;Plus_d'infos">
+            <rdf:type rdf:resource="&ont;ResponseInformation"/>
+            <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+            <ont:content>Votre aurons besoin de plus d'infos</ont:content>
+            <ont:response_date>2023-10-10T14:30:00</ont:response_date>
+            <ont:is_created_by rdf:resource="&ont;Wael"/>
+        </owl:NamedIndividual>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Hammer -->
+
+    <owl:NamedIndividual rdf:about="&ont;Hammer">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:amount rdf:datatype="&xsd;decimal">10</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">7</ont:id>
+        <ont:name>Hammer</ont:name>
+        <ont:description>Hammer Draft</ont:description>
+        <ont:status>Indisponible</ont:status>
+        <ont:has_category rdf:resource="&ont;Home_and_garden"/>
+        <ont:is_owned_by rdf:resource="&ont;Mohsen"/>
+         <ont:is_requested_by rdf:resource="&ont;HammerRequest"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Hazelnut1 -->
+
+    <owl:NamedIndividual rdf:about="&ont;Hazelnut1">
+        <rdf:type rdf:resource="&ont;Hazelnut"/>
+        <ont:id rdf:datatype="&xsd;integer">1</ont:id>
+        <ont:amount rdf:datatype="&xsd;decimal">1000</ont:amount>
+        <ont:expiration_date rdf:datatype="&xsd;dateTime">2023-03-13T15:00:20</ont:expiration_date>
+        <ont:status>active</ont:status>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Hazelnuts_to_edu -->
+
+    <owl:NamedIndividual rdf:about="&ont;Hazelnuts_to_edu">
+        <rdf:type rdf:resource="&ont;hazelnuts_donation"/>
+        <ont:amount rdf:datatype="&xsd;decimal">1200</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:object>null</ont:object>
+        <ont:has_donor rdf:resource="&ont;Mariem"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Home_and_garden -->
+
+    <owl:NamedIndividual rdf:about="&ont;Home_and_garden">
+        <rdf:type rdf:resource="&ont;ItemCategory"/>
+        <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+        <ont:name>Home_and_garden</ont:name>
+        <ont:contains_items rdf:resource="&ont;Hammer"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#How_to_recycle -->
+
+    <owl:NamedIndividual rdf:about="&ont;How_to_recycle">
+        <rdf:type rdf:resource="&ont;How_to_Guides"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:views rdf:datatype="&xsd;decimal">10</ont:views>
+        <ont:publicationDate rdf:datatype="&xsd;dateTime">2023-10-06T14:30:00</ont:publicationDate>
+        <ont:likes rdf:datatype="&xsd;decimal">3</ont:likes>
+        <ont:title>How To Recycle</ont:title>
+        <ont:featuredImage>blog1.png</ont:featuredImage>
+        <ont:tags>recycle objects no-waste</ont:tags>
+        <ont:content>How to recyle your old objects</ont:content>
+        <ont:status>Privé</ont:status>
+        <ont:has_author rdf:resource="&ont;Mohsen"/>
+        <ont:contains_comments rdf:resource="&ont;MohsenComment"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Laptop -->
+
+    <owl:NamedIndividual rdf:about="&ont;Laptop">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:amount rdf:datatype="&xsd;decimal">3500</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+        <ont:status>Disponible</ont:status>
+        <ont:name>Dell</ont:name>
+        <ont:description>Laptop high quality</ont:description>
+        <ont:has_category rdf:resource="&ont;Electronics"/>
+        <ont:is_owned_by rdf:resource="&ont;Mohsen"/>
+        <ont:is_requested_by rdf:resource="&ont;LaptopRequest"/>
+        <ont:is_requested_by rdf:resource="&ont;LaptopRequest_Mohsen_RamiCards"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#LaptopRequest -->
+
+    <owl:NamedIndividual rdf:about="&ont;LaptopRequest">
+        <rdf:type rdf:resource="&ont;Request"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:status>EN_COURS</ont:status>
+       <ont:note>This laptop is exactly what I need for my work!</ont:note>
+        <ont:is_for rdf:resource="&ont;Laptop"/>
+        <ont:belongs_to rdf:resource="&ont;Mariem"/>
+        <ont:is_by rdf:resource="&ont;jewelry"/>
+        <ont:amount rdf:datatype="&xsd;decimal">3500</ont:amount>
+    </owl:NamedIndividual>
+
+     <!-- http://www.co-ode.org/ontologies/ont.owl#LaptopRequest_Mohsen_RamiCards -->
+
+<owl:NamedIndividual rdf:about="&ont;LaptopRequest_Mohsen_RamiCards">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+    <ont:status>EN_COURS</ont:status>
+    <ont:note>Request for a high-end laptop with gaming capabilities for Mohsen.</ont:note>
+    <ont:is_for rdf:resource="&ont;Laptop"/>
+    <ont:belongs_to rdf:resource="&ont;Mariem"/>
+    <ont:is_by rdf:resource="&ont;Cards"/>
+    <ont:amount rdf:datatype="&xsd;decimal">2500</ont:amount>
+</owl:NamedIndividual>
+
+
+   <!-- http://www.co-ode.org/ontologies/ont.owl#PaintRequest -->
+
+<owl:NamedIndividual rdf:about="&ont;PaintRequest">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+    <ont:status>EN_COURS</ont:status>
+    <ont:note>Request for high-quality paint supplies for Mariem's art project.</ont:note>
+    <ont:is_for rdf:resource="&ont;Paint"/>
+    <ont:belongs_to rdf:resource="&ont;Mohsen"/>
+    <ont:is_by rdf:resource="&ont;Livre"/>
+    <ont:amount rdf:datatype="&xsd;decimal">0</ont:amount>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="&ont;JewelryRequest">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">6</ont:id>
+    <ont:status>CONFIRME</ont:status>
+    <ont:note>Request for elegant jewelry for a special person.</ont:note>
+    <ont:is_for rdf:resource="&ont;jewelry"/>
+    <ont:belongs_to rdf:resource="&ont;Mohsen"/>
+    <ont:is_by rdf:resource="&ont;Ball"/>
+    <ont:amount rdf:datatype="&xsd;decimal">150</ont:amount>
+    <ont:is_requested_by rdf:resource="&ont;JewelryRequest"/>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="&ont;BallRequest">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">7</ont:id>
+    <ont:status>CONFIRME</ont:status>
+    <ont:note>Request for a high-quality ball for outdoor activities.</ont:note>
+    <ont:is_for rdf:resource="&ont;Ball"/>
+    <ont:belongs_to rdf:resource="&ont;Mariem"/>
+    <ont:is_by rdf:resource="&ont;Paint"/>
+    <ont:amount rdf:datatype="&xsd;decimal">20</ont:amount>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="&ont;HarryBookRequest">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">8</ont:id>
+    <ont:status>EN_COURS</ont:status>
+    <ont:note>Request for the book 'Harry Potter' for my collection.</ont:note>
+    <ont:is_for rdf:resource="&ont;Book"/>
+    <ont:belongs_to rdf:resource="&ont;Mariem"/>
+    <ont:is_by rdf:resource="&ont;Paint"/>
+    <ont:amount rdf:datatype="&xsd;decimal">15</ont:amount>
+</owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Livre -->
+
+    <owl:NamedIndividual rdf:about="&ont;Livre">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:amount rdf:datatype="&xsd;decimal">10</ont:amount>
+        <ont:status>Disponible</ont:status>
+        <ont:name>livre</ont:name>
+        <ont:description>livre de Arnaud Delalande</ont:description>
+        <ont:has_category rdf:resource="&ont;Books_and_media"/>
+        <ont:is_owned_by rdf:resource="&ont;Mohsen"/>
+        <ont:is_offered_for rdf:resource="&ont;RobeRequest"/>
+         <ont:is_offered_for rdf:resource="&ont;PaintRequest"/>
+         <ont:is_requested_by rdf:resource="&ont;LivreRequest"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Mariem -->
+
+    <owl:NamedIndividual rdf:about="&ont;Mariem">
+        <rdf:type rdf:resource="&ont;User"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:phone rdf:datatype="&xsd;decimal">22222222</ont:phone>
+        <ont:amount rdf:datatype="&xsd;decimal">6500</ont:amount>
+        <ont:account_status>active</ont:account_status>
+        <ont:password>Mariem222</ont:password>
+        <ont:username>mariem</ont:username>
+        <ont:bio>test mariem bio</ont:bio>
+        <ont:email>mariem@outlook.fr</ont:email>
+        <ont:name>Mariem Ben Salah</ont:name>
+        <ont:profile_picture>mariem.jpeg</ont:profile_picture>
+        <ont:has_items rdf:resource="&ont;Cards"/>
+        <ont:writes_comments rdf:resource="&ont;DIYComment"/>
+        <ont:has_responses rdf:resource="&ont;Excuses"/>
+        <ont:donates rdf:resource="&ont;Hazelnuts_to_edu"/>
+        <ont:donates rdf:resource="&ont;MariemDonation"/>
+        <ont:has_items rdf:resource="&ont;Paint"/>
+        <ont:has_items rdf:resource="&ont;Robe"/>
+        <ont:has_items rdf:resource="&ont;jewelry"/>
+         <ont:has_requests rdf:resource="&ont;LaptopRequest"/>
+         <ont:has_requests rdf:resource="&ont;LaptopRequest_Mohsen_RamiCards"/>
+         <ont:has_requests rdf:resource="&ont;HammerRequest"/>
+          <ont:has_requests rdf:resource="&ont;BallRequest"/>
+          <ont:has_requests rdf:resource="&ont;HarryBookRequest"/>
+           <ont:has_requests rdf:resource="&ont;LivreRequest"/>
+
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#MariemDonation -->
+
+    <owl:NamedIndividual rdf:about="&ont;MariemDonation">
+        <rdf:type rdf:resource="&ont;hazelnuts_donation"/>
+        <ont:id rdf:datatype="&xsd;decimal">4</ont:id>
+        <ont:amount rdf:datatype="&xsd;decimal">1200</ont:amount>
+        <ont:object>null</ont:object>
+        <ont:has_donor rdf:resource="&ont;Mariem"/>
+    </owl:NamedIndividual>
+
+<!-- http://www.co-ode.org/ontologies/ont.owl#GiveAHandDonation -->
+
+        <owl:NamedIndividual rdf:about="&ont;GiveAHandDonation">
+            <rdf:type rdf:resource="&ont;hazelnuts_donation"/>
+            <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+            <ont:amount rdf:datatype="&xsd;decimal">400</ont:amount>
+            <ont:object>null</ont:object>
+            <ont:has_donor rdf:resource="&ont;Mohsen"/>
+        </owl:NamedIndividual>
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#MathEvent -->
+
+    <owl:NamedIndividual rdf:about="&ont;MathEvent">
+        <rdf:type rdf:resource="&ont;Skill_Swap"/>
+        <ont:date rdf:datatype="&xsd;dateTime">2024-02-14T10:03:11</ont:date>
+        <ont:start rdf:datatype="&xsd;dateTime">2024-02-14T10:03:11</ont:start>
+        <ont:end rdf:datatype="&xsd;dateTime">2024-02-14T12:03:11</ont:end>
+        <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+        <ont:description>Math event swap</ont:description>
+        <ont:Lieu>Bizerte</ont:Lieu>
+        <ont:image_path>mathSwap.png</ont:image_path>
+        <ont:nom>MathSwap</ont:nom>
+        <ont:color>#444111</ont:color>
+        <ont:is_added_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Mohsen -->
+
+    <owl:NamedIndividual rdf:about="&ont;Mohsen">
+        <rdf:type rdf:resource="&ont;User"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:amount rdf:datatype="&xsd;decimal">4000</ont:amount>
+        <ont:phone rdf:datatype="&xsd;decimal">99999999</ont:phone>
+        <ont:email>mohsen@gmail.com</ont:email>
+        <ont:username>mohsen</ont:username>
+        <ont:password>mohsen123</ont:password>
+        <ont:name>mohsen ben mohsen</ont:name>
+        <ont:bio>test mohsen bio</ont:bio>
+        <ont:account_status>active</ont:account_status>
+        <ont:profile_picture>mohsen.png</ont:profile_picture>
+        <ont:has_items rdf:resource="&ont;Book"/>
+        <ont:has_claims rdf:resource="&ont;FraudeClaim"/>
+        <ont:has_items rdf:resource="&ont;Hammer"/>
+        <ont:is_author_of rdf:resource="&ont;How_to_recycle"/>
+        <ont:has_items rdf:resource="&ont;Laptop"/>
+        <ont:has_items rdf:resource="&ont;Ball"/>
+        <ont:has_requests rdf:resource="&ont;PaintRequest"/>
+         <ont:has_requests rdf:resource="&ont;JewelryRequest"/>
+           <ont:has_requests rdf:resource="&ont;JewelryRequest_byBook"/>
+        <ont:has_items rdf:resource="&ont;Livre"/>
+        <ont:writes_comments rdf:resource="&ont;MohsenComment"/>
+        <ont:participates_to rdf:resource="&ont;MohsenParticipation"/>
+        <ont:has_requests rdf:resource="&ont;RobeRequest"/>
+        <ont:donates rdf:resource="&ont;food"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#MohsenComment -->
+
+    <owl:NamedIndividual rdf:about="&ont;MohsenComment">
+        <rdf:type rdf:resource="&ont;Comment"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:content>very interesting</ont:content>
+        <ont:under_blog rdf:resource="&ont;How_to_recycle"/>
+        <ont:has_writer rdf:resource="&ont;Mohsen"/>
+    </owl:NamedIndividual>
+
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#MohsenParticipation -->
+
+    <owl:NamedIndividual rdf:about="&ont;MohsenParticipation">
+        <rdf:type rdf:resource="&ont;Participation"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:nomUser>Mohsen</ont:nomUser>
+        <ont:related_to rdf:resource="&ont;Workshop"/>
+    </owl:NamedIndividual>
+
+
+
+        <owl:NamedIndividual rdf:about="&ont;MohsenParticipation">
+            <rdf:type rdf:resource="&ont;Participation"/>
+            <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+            <ont:nomUser>Mohsen</ont:nomUser>
+            <ont:related_to rdf:resource="&ont;Chocolate"/>
+        </owl:NamedIndividual>
+
+
+             <owl:NamedIndividual rdf:about="&ont;MariemParticipation">
+                    <rdf:type rdf:resource="&ont;Participation"/>
+                    <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+                    <ont:nomUser>Mariem</ont:nomUser>
+                    <ont:related_to rdf:resource="&ont;Chocolate"/>
+                </owl:NamedIndividual>
+
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#NPO -->
+
+    <owl:NamedIndividual rdf:about="&ont;NPO">
+        <rdf:type rdf:resource="&ont;Nonprofit_Organizations"/>
+        <ont:id rdf:datatype="&xsd;decimal">6</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2000-02-02T15:00:00</ont:founding_date>
+        <ont:phone rdf:datatype="&xsd;decimal">52687412</ont:phone>
+        <ont:archived rdf:datatype="&xsd;boolean">false</ont:archived>
+        <ont:description>NPO causes</ont:description>
+        <ont:name>npo</ont:name>
+        <ont:website>https://www.npo.com</ont:website>
+        <ont:email>npo@gmail.com</ont:email>
+        <ont:location>4 rue palestine</ont:location>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Paint -->
+
+    <owl:NamedIndividual rdf:about="&ont;Paint">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:amount rdf:datatype="&xsd;decimal">500</ont:amount>
+        <ont:name>Paint</ont:name>
+        <ont:description>Paint Art</ont:description>
+        <ont:status>Disponible</ont:status>
+        <ont:has_category rdf:resource="&ont;Art_and_Crafts"/>
+        <ont:is_owned_by rdf:resource="&ont;Mariem"/>
+         <ont:is_requested_by rdf:resource="&ont;PaintRequest"/>
+                <ont:participates_to rdf:resource="&ont;MariemParticipation"/>
+         <ont:is_offered_for rdf:resource="&ont;BallRequest"/>
+          <ont:is_offered_for rdf:resource="&ont;HarryBookRequest"/>
+    </owl:NamedIndividual>
+
+       <owl:NamedIndividual rdf:about="&ont;Craft">
+             <rdf:type rdf:resource="&ont;Item"/>
+             <ont:id rdf:datatype="&xsd;decimal">9</ont:id>
+             <ont:amount rdf:datatype="&xsd;decimal">500</ont:amount>
+             <ont:name>Craft</ont:name>
+             <ont:description>Crafts</ont:description>
+             <ont:status>Disponible</ont:status>
+             <ont:has_category rdf:resource="&ont;Art_and_Crafts"/>
+             <ont:is_owned_by rdf:resource="&ont;Mariem"/>
+             <ont:is_offered_for rdf:resource="&ont;HammerRequest"/>
+             <ont:is_offered_for rdf:resource="&ont;LivreRequest"/>
+         </owl:NamedIndividual>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Robe -->
+
+    <owl:NamedIndividual rdf:about="&ont;Robe">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:amount rdf:datatype="&xsd;decimal">100</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">6</ont:id>
+        <ont:name>Robe courte</ont:name>
+        <ont:description>robe noire courte</ont:description>
+        <ont:status>Indisponible</ont:status>
+        <ont:has_category rdf:resource="&ont;Fashion_and_accessories"/>
+        <ont:is_owned_by rdf:resource="&ont;Mariem"/>
+        <ont:is_requested_by rdf:resource="&ont;RobeRequest"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#RobeRequest -->
+
+    <owl:NamedIndividual rdf:about="&ont;RobeRequest">
+        <rdf:type rdf:resource="&ont;Request"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:status>EN_COURS</ont:status>
+        <ont:note>I'm going to gift this dress to my wife.</ont:note>
+        <ont:is_by rdf:resource="&ont;Livre"/>
+        <ont:belongs_to rdf:resource="&ont;Mohsen"/>
+        <ont:is_for rdf:resource="&ont;Robe"/>
+        <ont:amount rdf:datatype="&xsd;decimal">200</ont:amount>
+    </owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="&ont;HammerRequest">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+    <ont:status>ANNULE</ont:status>
+    <ont:note>Request for a high-quality hammer for crafting purposes.</ont:note>
+    <ont:is_for rdf:resource="&ont;Hammer"/>
+    <ont:belongs_to rdf:resource="&ont;Mariem"/>
+    <ont:is_by rdf:resource="&ont;Craft"/>
+    <ont:amount rdf:datatype="&xsd;decimal">50</ont:amount>
+</owl:NamedIndividual>
+
+
+<owl:NamedIndividual rdf:about="&ont;LivreRequest">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">9</ont:id>
+    <ont:status>CONFIRME</ont:status>
+    <ont:note>Request for a book on crafting techniques.</ont:note>
+    <ont:is_for rdf:resource="&ont;Livre"/>
+    <ont:belongs_to rdf:resource="&ont;Mariem"/>
+    <ont:is_by rdf:resource="&ont;Craft"/>
+    <ont:amount rdf:datatype="&xsd;decimal">25</ont:amount>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="&ont;JewelryRequest_byBook">
+    <rdf:type rdf:resource="&ont;Request"/>
+    <ont:id rdf:datatype="&xsd;decimal">10</ont:id>
+    <ont:status>ANNULE</ont:status>
+    <ont:note>Request for jewelry in exchange with a valuable book.</ont:note>
+    <ont:is_for rdf:resource="&ont;jewelry"/>
+    <ont:belongs_to rdf:resource="&ont;Mohsen"/>
+    <ont:is_by rdf:resource="&ont;Book"/>
+    <ont:amount rdf:datatype="&xsd;decimal">100</ont:amount>
+</owl:NamedIndividual>
+
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Robot -->
+
+    <owl:NamedIndividual rdf:about="&ont;Robot">
+        <rdf:type rdf:resource="&ont;Toy_Swap"/>
+        <ont:date rdf:datatype="&xsd;dateTime">2024-11-30T10:03:11</ont:date>
+        <ont:start rdf:datatype="&xsd;dateTime">2024-11-30T10:03:11</ont:start>
+        <ont:end rdf:datatype="&xsd;dateTime">2024-11-30T13:03:11</ont:end>
+        <ont:id rdf:datatype="&xsd;decimal">6</ont:id>
+        <ont:Lieu>Tunis</ont:Lieu>
+        <ont:description>Robot for kids(3 years)</ont:description>
+        <ont:nom>Robot</ont:nom>
+        <ont:color>#234567</ont:color>
+        <ont:image_path>robot.png</ont:image_path>
+        <ont:is_added_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Stay_safe -->
+
+    <owl:NamedIndividual rdf:about="&ont;Stay_safe">
+        <rdf:type rdf:resource="&ont;Legal_and_Safety"/>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:likes rdf:datatype="&xsd;int">20</ont:likes>
+        <ont:publicationDate rdf:datatype="&xsd;dateTime">2024-05-12T09:05:00</ont:publicationDate>
+        <ont:views rdf:datatype="&xsd;int">3</ont:views>
+        <ont:title>StaySafe</ont:title>
+        <ont:featuredImage>StaySafe.png</ont:featuredImage>
+        <ont:tags>Safe</ont:tags>
+        <ont:content>How to stay safe in this community</ont:content>
+        <ont:status>Publique</ont:status>
+        <ont:has_author rdf:resource="&ont;Wael"/>
+
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Taki_Academy -->
+
+    <owl:NamedIndividual rdf:about="&ont;Taki_Academy">
+        <rdf:type rdf:resource="&ont;Educational_Institutions"/>
+        <ont:id rdf:datatype="&xsd;decimal">7</ont:id>
+        <ont:founding_date rdf:datatype="&xsd;dateTime">2014-05-12T12:00:00</ont:founding_date>
+        <ont:phone rdf:datatype="&xsd;decimal">52369741</ont:phone>
+        <ont:archived rdf:datatype="&xsd;boolean">false</ont:archived>
+        <ont:location>2 Lafyette</ont:location>
+        <ont:website>www.taki-academy.tn</ont:website>
+        <ont:email>taki-academy@hotmail.com</ont:email>
+        <ont:name>Taki Academy</ont:name>
+        <ont:description>Taki Academy</ont:description>
+        <ont:is_created_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Tips&amp;Tricks -->
+
+    <owl:NamedIndividual rdf:about="&ont;Tips&amp;Tricks">
+        <rdf:type rdf:resource="&ont;Trading_Tips_and_Tricks"/>
+        <ont:likes rdf:datatype="&xsd;int">10</ont:likes>
+        <ont:views rdf:datatype="&xsd;int">10</ont:views>
+        <ont:publicationDate rdf:datatype="&xsd;dateTime">2023-12-12T09:00:00</ont:publicationDate>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:featuredImage>tipstricks.png</ont:featuredImage>
+        <ont:title>Tips&amp;Tricks</ont:title>
+        <ont:status>Publique</ont:status>
+        <ont:tags>tips</ont:tags>
+        <ont:content>Trading tips and tricks</ont:content>
+        <ont:has_author rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Toys_and_games -->
+
+    <owl:NamedIndividual rdf:about="&ont;Toys_and_games">
+        <rdf:type rdf:resource="&ont;ItemCategory"/>
+        <ont:id rdf:datatype="&xsd;decimal">6</ont:id>
+        <ont:name>Toys_and_games</ont:name>
+        <ont:contains_items rdf:resource="&ont;Cards"/>
+        <ont:contains_items rdf:resource="&ont;Ball"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Wael -->
+
+    <owl:NamedIndividual rdf:about="&ont;Wael">
+        <rdf:type rdf:resource="&ont;Admin"/>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:profile_picture>waelPicture.png</ont:profile_picture>
+        <ont:email>waelben55@gmail.com</ont:email>
+        <ont:username>Wael</ont:username>
+        <ont:password>waelpassword123</ont:password>
+        <ont:creates rdf:resource="&ont;Animaux_Sans_Toit"/>
+        <ont:creates rdf:resource="&ont;Benevolent_Buddies"/>
+        <ont:adds rdf:resource="&ont;Chocolate"/>
+        <ont:creates rdf:resource="&ont;Education_4_All"/>
+        <ont:creates rdf:resource="&ont;Enactus"/>
+        <ont:adds rdf:resource="&ont;MathEvent"/>
+        <ont:creates rdf:resource="&ont;NPO"/>
+        <ont:adds rdf:resource="&ont;Robot"/>
+        <ont:is_author_of rdf:resource="&ont;Stay_safe"/>
+        <ont:creates rdf:resource="&ont;Taki_Academy"/>
+        <ont:adds rdf:resource="&ont;Workshop"/>
+        <ont:adds rdf:resource="&ont;shoes"/>
+        <ont:creates rdf:resource="&ont;Plus_d'infos"/>
+        <ont:creates rdf:resource="&ont;Excuses"/>
+        <ont:creates rdf:resource="&ont;Demande_Confirmee"/>
+        <ont:creates rdf:resource="&ont;Reclamation_Rejetee"/>
+        <ont:creates rdf:resource="&ont;Reclamation_Resolue"/>
+    </owl:NamedIndividual>
+
+ <owl:NamedIndividual rdf:about="&ont;Karim">
+        <rdf:type rdf:resource="&ont;Admin"/>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:profile_picture>waelPicture.png</ont:profile_picture>
+        <ont:email>karim@gmail.com</ont:email>
+        <ont:username>Karim</ont:username>
+        <ont:password>karimpassword123</ont:password>
+        <ont:creates rdf:resource="&ont;Animaux_Sans_Toit"/>
+        <ont:creates rdf:resource="&ont;Benevolent_Buddies"/>
+        <ont:adds rdf:resource="&ont;Chocolate"/>
+        <ont:creates rdf:resource="&ont;Education_4_All"/>
+        <ont:creates rdf:resource="&ont;Enactus"/>
+        <ont:adds rdf:resource="&ont;MathEvent"/>
+        <ont:creates rdf:resource="&ont;NPO"/>
+        <ont:adds rdf:resource="&ont;Robot"/>
+        <ont:is_author_of rdf:resource="&ont;Stay_safe"/>
+        <ont:creates rdf:resource="&ont;Taki_Academy"/>
+        <ont:adds rdf:resource="&ont;Workshop"/>
+        <ont:adds rdf:resource="&ont;shoes"/>
+    </owl:NamedIndividual>
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#Workshop -->
+
+    <owl:NamedIndividual rdf:about="&ont;Workshop">
+        <rdf:type rdf:resource="&ont;Skill_Swap"/>
+        <ont:id rdf:datatype="&xsd;decimal">1</ont:id>
+        <ont:start rdf:datatype="&xsd;dateTime">2002-10-10T14:30:00</ont:start>
+        <ont:end rdf:datatype="&xsd;dateTime">2002-10-10T18:30:00</ont:end>
+        <ont:date rdf:datatype="&xsd;dateTime">2023-10-10T14:30:00</ont:date>
+        <ont:nom>Workshop Recyclage</ont:nom>
+        <ont:description>how to recycle</ont:description>
+        <ont:Lieu>3 rue beb el jazira</ont:Lieu>
+        <ont:color>red</ont:color>
+        <ont:image_path>workshop.png</ont:image_path>
+        <ont:has_participations rdf:resource="&ont;MohsenParticipation"/>
+        <ont:is_added_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#food -->
+
+    <owl:NamedIndividual rdf:about="&ont;food">
+        <rdf:type rdf:resource="&ont;object_donation"/>
+        <ont:amount rdf:datatype="&xsd;decimal">0</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">2</ont:id>
+        <ont:object>food</ont:object>
+        <ont:has_donor rdf:resource="&ont;Mohsen"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#jewelry -->
+
+    <owl:NamedIndividual rdf:about="&ont;jewelry">
+        <rdf:type rdf:resource="&ont;Item"/>
+        <ont:amount rdf:datatype="&xsd;decimal">2000</ont:amount>
+        <ont:id rdf:datatype="&xsd;decimal">5</ont:id>
+        <ont:name>jewelry</ont:name>
+        <ont:status>Disponible</ont:status>
+        <ont:description>Cartier</ont:description>
+        <ont:has_category rdf:resource="&ont;Fashion_and_accessories"/>
+        <ont:is_offered_for rdf:resource="&ont;LaptopRequest"/>
+        <ont:is_owned_by rdf:resource="&ont;Mariem"/>
+        <ont:is_requested_by rdf:resource="&ont;BallRequest"/>
+        <ont:is_requested_by rdf:resource="&ont;JewelryRequest_byBook"/>
+    </owl:NamedIndividual>
+
+
+
+    <!-- http://www.co-ode.org/ontologies/ont.owl#shoes -->
+
+    <owl:NamedIndividual rdf:about="&ont;shoes">
+        <rdf:type rdf:resource="&ont;Clothing_Exchange"/>
+        <ont:date rdf:datatype="&xsd;dateTime">2023-05-14T18:23:11</ont:date>
+        <ont:start rdf:datatype="&xsd;dateTime">2023-05-14T18:23:11</ont:start>
+        <ont:end rdf:datatype="&xsd;dateTime">2023-05-14T20:23:11</ont:end>
+        <ont:id rdf:datatype="&xsd;decimal">3</ont:id>
+        <ont:color>#000000</ont:color>
+        <ont:nom>ShoesEvent</ont:nom>
+        <ont:description>shoes adidas new new</ont:description>
+        <ont:image_path>shoes.png</ont:image_path>
+        <ont:Lieu>Nabeul</ont:Lieu>
+        <ont:is_added_by rdf:resource="&ont;Wael"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.4.2) http://owlapi.sourceforge.net -->
+
